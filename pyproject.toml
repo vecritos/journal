@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "journal-tools"
+version = "0.1.0"
+description = "Various journal and document utilities"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "pypdf>=4.0.0",
+]
+
+[project.scripts]
+journal = "cli:main"
+merge-pdfs = "pdf.merge_pdfs:main"
+
+[tool.setuptools]
+packages = ["journal", "pdf"]

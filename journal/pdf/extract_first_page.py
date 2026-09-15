@@ -13,9 +13,3 @@ def extract_first_page(pdf_path, pages, output_path):
         # Write the first page to a new PDF
         with open(output_path, "wb") as output_file:
             writer.write(output_file)
-
-if __name__ == "__main__":
-    pdf_path = sys.argv[1]
-    pages = sys.argv[2].split()
-    output_path = sys.argv[3]
-    extract_first_page(pdf_path, pages, output_path)

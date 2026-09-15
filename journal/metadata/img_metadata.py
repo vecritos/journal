@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-
 import argparse
 import sys
 import hashlib
@@ -27,6 +26,7 @@ def parse_key_values(pairs):
 
 
 # ----------------- Core Functions -----------------
+
 def list_metadata(path, verbose=False):
     img = Image.open(path)
 
@@ -145,7 +145,7 @@ def add_metadata(path, pairs, output=None):
 
 def main():
     parser = argparse.ArgumentParser(
-        prog="scriptyboi",
+        prog="img_metadata",
         formatter_class=argparse.RawTextHelpFormatter,
         description="""
 Forensic & anti-forensic image metadata tool.
@@ -162,22 +162,22 @@ Supported formats:
         epilog="""
 Examples:
   Inspect metadata (safe):
-    python3 scriptyboi.py -l image.png
+    python3 img_metadata.py -l image.png
 
   Verbose inspection with pixel hash:
-    python3 scriptyboi.py -l image.jpg -v
+    python3 img_metadata.py -l image.jpg -v
 
   Full metadata wipe (pixel-preserving):
-    python3 scriptyboi.py -w image.png
+    python3 img_metadata.py -w image.png
 
   Wipe metadata to a new file:
-    python3 scriptyboi.py -w image.jpg -o clean.jpg
+    python3 img_metadata.py -w image.jpg -o clean.jpg
 
   Remove specific keys:
-    python3 scriptyboi.py -r image.png Author Software
+    python3 img_metadata.py -r image.png Author Software
 
   Add metadata:
-    python3 scriptyboi.py -a image.png Author=Name CaseID=042
+    python3 img_metadata.py -a image.png Author=Name CaseID=042
 
 Notes:
   • Pixel hashes allow proof of non-destructive edits
