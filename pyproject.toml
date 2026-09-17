@@ -14,7 +14,10 @@ dependencies = [
 
 [project.scripts]
 journal = "cli:main"
-merge-pdfs = "pdf.merge_pdfs:main"
+merge-pdfs = "journal.pdf.merge_pdfs:main"
 
 [tool.setuptools]
-packages = ["journal", "pdf"]
+py-modules = ["cli"]
+
+[tool.setuptools.packages.find]
+include = ["journal*"]

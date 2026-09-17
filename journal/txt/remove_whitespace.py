@@ -25,10 +25,3 @@ def strip_newlines(input_file, output_file="output.py"):
         print(f"Error: File {input_file} not found.")
     except Exception as e:
         print(f"An error occurred: {e}")
-
-if __name__ == "__main__":
-    if len(sys.argv) != 2:
-        print("Usage: python script.py <input_file>")
-    else:
-        input_file = sys.argv[1]
-        strip_newlines(input_file)

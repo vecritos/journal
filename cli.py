@@ -131,22 +131,22 @@ def main(argv=None) -> int:
 
     if args.command == "pdf":
         if args.pdf_command == "merge":
-            from pdf.merge_pdfs import merge_pdfs
+            from journal.pdf.merge_pdfs import merge_pdfs
             merge_pdfs(args.input, args.output)
         elif args.pdf_command == "rotate":
-            from pdf.rotate_pdf_90 import rotate_pdf_90
+            from journal.pdf.rotate_pdf_90 import rotate_pdf_90
             rotate_pdf_90(Path(args.input), Path(args.output))
         elif args.pdf_command == "extract":
-            from pdf.extract_pages import extract_pages
-            extract_pages(Path(args.input), Path(args.output), [int(p) for p in args.pages])
+            from journal.pdf.extract_first_page import extract_first_page
+            extract_first_page(Path(args.input), [int(p) for p in args.pages], Path(args.output))
         elif args.pdf_command == "md-to-pdf":
-            from pdf.md_to_pdf import md_to_pdf
+            from journal.pdf.md_to_pdf import md_to_pdf
             md_to_pdf(Path(args.input), Path(args.output))
         elif args.pdf_command == "txt-to-pdf":
-            from pdf.txt_to_pdf import txt_to_pdf
+            from journal.pdf.txt_to_pdf import txt_to_pdf
             txt_to_pdf(Path(args.input), Path(args.output))
         elif args.pdf_command == "images-to-pdf":
-            from pdf.images_to_pdf_sorted import images_to_pdf_sorted
+            from journal.pdf.images_to_pdf_sorted import images_to_pdf_sorted
             images_to_pdf_sorted(args.input, Path(args.output))
         else:
             parser.error(f"Unsupported PDF command: {args.pdf_command}")
